@@ -1,1 +1,23 @@
-<p>formulario works!</p>
+<div class="principal">
+<div class="form">
+    <form>
+        <label for="title">Título:</label>
+        <input id="title" name="title" [(ngModel)]="newnotice.title"/>
+
+        <label for="imagenUrl">Imagen Url:</label>
+        <input id="imagenUrl" name="imagenUrl" [(ngModel)]="newnotice.imagenUrl"/>
+
+        <label for="cuerpo">Cuerpo:</label>
+        <textarea id="cuerpo" name="cuerpo" placeholder="Escriba tu noticia" [(ngModel)]="newnotice.cuerpo"></textarea>
+
+        <label for="fecha">Fecha:</label>
+        <input id="fecha" name="fecha" type="date" [(ngModel)]="newnotice.fecha"/>
+
+        <button (click)="addNotice()" type="submit">Enviar</button>
+    </form>
+</div>
+    <ul class="contenedor" [innerHTML]="cargarNoticia()">
+        
+    </ul>
+
+</div>
