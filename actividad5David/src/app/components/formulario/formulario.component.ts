@@ -32,7 +32,6 @@ export class FormularioComponent {
     
     if (isValidNotice(this.newnotice)) {
         this.arrNoticias.push({ ...this.newnotice });
-
         const now = new Date();
         this.newnotice = {
             title: '',
