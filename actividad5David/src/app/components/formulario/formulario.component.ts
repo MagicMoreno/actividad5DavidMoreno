@@ -24,20 +24,15 @@ export class FormularioComponent {
   };
   
   addNotice() {
-    // Función auxiliar para validar campos vacíos
-    const isValidNotice = (noticia: Iformulario) => {
+        const isValidNotice = (noticia: Iformulario) => {
         return noticia.title !== "" &&
                noticia.imagenUrl !== "" &&
                noticia.cuerpo !== "";
     };
     
-
-    // Validación de los campos de la nueva noticia
     if (isValidNotice(this.newnotice)) {
-        // Agregar la nueva noticia al arreglo de noticias
         this.arrNoticias.push({ ...this.newnotice });
 
-        // Reiniciar los campos de la nueva noticia
         const now = new Date();
         this.newnotice = {
             title: '',
@@ -46,7 +41,6 @@ export class FormularioComponent {
             fecha: new Date()
         };
     }else {
-      // Mostrar una alerta si algún campo está vacío
       alert("Por favor, complete todos los campos.");
   }
 }
