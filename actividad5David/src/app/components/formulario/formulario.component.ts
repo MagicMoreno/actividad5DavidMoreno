@@ -24,18 +24,34 @@ export class FormularioComponent {
   };
   
   addNotice() {
-    if (this.newnotice.title !== "" && this.newnotice.imagenUrl !== "" && this.newnotice.cuerpo !== "" && this.newnotice.fecha !== null) {
+    // Función auxiliar para validar campos vacíos
+    const isValidNotice = (noticia: Iformulario) => {
+        return noticia.title !== "" &&
+               noticia.imagenUrl !== "" &&
+               noticia.cuerpo !== "";
+    };
+    
+
+    // Validación de los campos de la nueva noticia
+    if (isValidNotice(this.newnotice)) {
+        // Agregar la nueva noticia al arreglo de noticias
         this.arrNoticias.push({ ...this.newnotice });
+
+        // Reiniciar los campos de la nueva noticia
+        const now = new Date();
         this.newnotice = {
             title: '',
             imagenUrl: '',
             cuerpo: '',
             fecha: new Date()
         };
-    }
+    }else {
+      // Mostrar una alerta si algún campo está vacío
+      alert("Por favor, complete todos los campos.");
+  }
 }
 
-  cargarNoticia(): string {
+  cargarNoticia() {
     let html: string = '';
     this.arrNoticias.forEach((noticia: Iformulario) => {
         html += `<ul>
